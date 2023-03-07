@@ -6,7 +6,7 @@ public class Employer {
 
     private int id;
     private static int nextId = 1;
-    private String value;
+    private String value;  //value is the name getValue just returns what is held here not the info we dont need
 
     public Employer() {
         id = nextId;
