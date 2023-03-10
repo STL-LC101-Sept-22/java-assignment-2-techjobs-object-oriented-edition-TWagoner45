@@ -1,10 +1,13 @@
 package org.launchcode.techjobs.oo.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.launchcode.techjobs.oo.Job;
-import org.launchcode.techjobs.oo.PositionType;
+import org.launchcode.techjobs.oo.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by LaunchCode
@@ -24,17 +27,18 @@ public class JobTest {
 
     @Test
     public  void testJobConstructorSetsAllFields(){
-        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        //what goes into each section is there a list of data somewhere
+        Job testJob;
+        testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+
     assertTrue(testJob.getName() instanceof String);
     assertEquals("Product Tester", testJob.getName()); //return boolean
     assertTrue(testJob.getEmployer() instanceof Employer);
     assertEquals("ACME", testJob.getEmployer().getValue()); //method chaining
-    assertTrue(testJob instanceof Location);
+    assertTrue(testJob.getLocation() instanceof Location);
     assertEquals("Desert", testJob.getLocation().getValue());
     assertTrue(testJob.getPositionType() instanceof PositionType);
     assertEquals("Quality Control", testJob.getPositionType().getValue());
-    assertTrue(testJob instanceof CoreCompetency);
+    assertTrue(testJob.getCoreCompetency() instanceof CoreCompetency);
     assertEquals("Persistence", testJob.getCoreCompetency().getValue());
 
     }
@@ -46,6 +50,25 @@ public class JobTest {
     }
 
     @Test
+    public void testToStringStartsAndEndsWithNewLine(){  //check f&l character of string and new line using charat
+        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
+        char letter[] = testJob.toString().toCharArray();  //thank goodness for intellij
+        assertEquals('\n', letter[0]);  // do i need the [] for the index of?
+        assertEquals('\n', letter[letter.length-1]);  // from 0 to n-1 n is length of the string (value of last
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
+        //assert weather those things are equal at the end  declare string
+    }
+
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
+
+    }
 
     private void assertNotEquals(int id, int id1) {
     }

@@ -38,8 +38,7 @@ public class Job {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
+    public boolean equals(Object o) {        if (this == o) return true;
         if (!(o instanceof Job)) return false;
         Job job = (Job) o;
         return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && coreCompetency.equals(job.coreCompetency);
@@ -65,7 +64,7 @@ public class Job {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
+   public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
@@ -93,5 +92,15 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+    @Override
+    public String toString() { // start with a new line
+    return "\n" + "ID: " + id + "\n" +
+            "Name:" + name + "\n" +
+            "Employer:" + employer + "\n" +
+            "Location" + location + "\n" +
+            "Position Type:" + positionType + "\n" +
+            "Core Competency:" + coreCompetency + "\n";
+    }
 
 }
