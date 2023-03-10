@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public abstract class JobField {  //all 4 in common- fields constructors generate gets sets custom methods
+public class Employer extends JobField {  //all 4 in common- fields constructors generate gets sets custom methods
     private int id;
     private static int nextId = 1;
     private String value;

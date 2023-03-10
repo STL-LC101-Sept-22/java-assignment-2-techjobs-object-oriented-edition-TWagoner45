@@ -4,18 +4,19 @@ import java.util.Objects;
 
 public class Employer {
 
-    private int id;
-    private static int nextId = 1;
-    private String value;  //value is the name getValue just returns what is held here not the info we dont need
+   // private int id;
+    //private static int nextId = 1;
+    //private String value;  //value is the name getValue just returns what is held here not the info we dont need
 
-    public Employer() {
-        id = nextId;
-        nextId++;
-    }
+//    public Employer() {
+//        id = nextId;
+//        nextId++;
+//    }
 
     public Employer(String value) {
-        this();
-        this.value = value;
+        super(value);
+        //this();
+       // this.value = value;
     }
 
     // Custom toString, equals, and hashCode methods:
@@ -40,16 +41,16 @@ public class Employer {
 
     // Getters and Setters:
 
-    public int getId() {
-        return id;
-    }
+    //public int getId() {
+       // return id;
+    //}
 
-    public String getValue() {
-        return value;
-    }
+   // public String getValue() {
+        //return value;
+   // }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+    //public void setValue(String value) {
+       // this.value = value;
+   // }
 
 }
