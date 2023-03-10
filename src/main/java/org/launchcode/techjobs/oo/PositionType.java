@@ -19,7 +19,8 @@ public class PositionType {
     }
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
-public String toString() {return value;}
+    @Override
+    public String toString() {return value;}
     //public String toString() {
         //return value;
     //}

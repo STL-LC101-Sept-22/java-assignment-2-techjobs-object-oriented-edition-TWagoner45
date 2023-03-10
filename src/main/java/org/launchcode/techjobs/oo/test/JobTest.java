@@ -54,20 +54,34 @@ public class JobTest {
         Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
         char letter[] = testJob.toString().toCharArray();  //thank goodness for intellij
         assertEquals('\n', letter[0]);  // do i need the [] for the index of?
-        assertEquals('\n', letter[letter.length-1]);  // from 0 to n-1 n is length of the string (value of last
+        assertEquals('\n', letter[letter.length-1]);  // from 0 to n-1 n is length of the string (value of last letter, cause dont know how long)
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
         //assert weather those things are equal at the end  declare string
+        String blanks = "/n" + "ID:" + testJob.getId() + "\n" +
+                "Name:" + testJob.getName() + "\n" +
+                "Employer:" + testJob.getEmployer() + "\n" +
+                "Location" + testJob.getLocation() + "\n" +
+                "Position Type:" + testJob.getPositionType() + "\n" +
+                "Core Competency:" + testJob.getCoreCompetency() + "\n";
+        assertEquals(testJob.toString(), blanks);
+
     }
 
 
     @Test
     public void testToStringHandlesEmptyField(){
         Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
-
+        String blanks = "/n" + "ID:" + testJob.getId() + "\n" +
+                "Name:" + testJob.getName() + "\n" +
+                "Employer:" + testJob.getEmployer() + "\n" +
+                "Location" + testJob.getLocation() + "\n" +
+                "Position Type:" + testJob.getPositionType() + "\n" +
+                "Core Competency:" + testJob.getCoreCompetency() + "\n";
+        assertEquals(testJob.toString(), blanks);
     }
 
     private void assertNotEquals(int id, int id1) {
