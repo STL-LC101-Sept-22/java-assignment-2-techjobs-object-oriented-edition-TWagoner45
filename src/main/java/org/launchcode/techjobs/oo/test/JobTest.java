@@ -59,15 +59,15 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
-        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
+        Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         //assert weather those things are equal at the end  declare string
-        String blanks = "/n" + "ID:" + testJob.getId() + "\n" +
-                "Name:" + testJob.getName() + "\n" +
-                "Employer:" + testJob.getEmployer() + "\n" +
-                "Location" + testJob.getLocation() + "\n" +
-                "Position Type:" + testJob.getPositionType() + "\n" +
-                "Core Competency:" + testJob.getCoreCompetency() + "\n";
-        assertEquals(testJob.toString(), blanks);
+        String blanks = "\n" + "ID: " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: " + testJob.getEmployer() + "\n" +
+                "Location: " + testJob.getLocation() + "\n" +
+                "Position Type: " + testJob.getPositionType() + "\n" +
+                "Core Competency: " + testJob.getCoreCompetency() + "\n";
+        assertEquals( blanks, testJob.toString());
 
     }
 
@@ -75,12 +75,12 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField(){
         Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency(""));
-        String blanks = "/n" + "ID:" + testJob.getId() + "\n" +
-                "Name:" + testJob.getName() + "\n" +
-                "Employer:" + testJob.getEmployer() + "\n" +
-                "Location" + testJob.getLocation() + "\n" +
-                "Position Type:" + testJob.getPositionType() + "\n" +
-                "Core Competency:" + testJob.getCoreCompetency() + "\n";
+        String blanks = "\n" + "ID: " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: " + testJob.getEmployer() + "\n" +
+                "Location: " + testJob.getLocation() + "\n" +
+                "Position Type: " + testJob.getPositionType() + "\n" +
+                "Core Competency: " + "Data not available" + "\n";
         assertEquals(testJob.toString(), blanks);
     }
 

@@ -95,29 +95,29 @@ public class Job {
 
     @Override
     public String toString() { // start with a new line
-    String empty = "Data not available";
-    if (name == "") {
-        name = empty;
+    String blank = "Data Not Available";
+    if (name.equals("")) {
+        name = blank;
     }
-    if (employer.getValue() == "") {
-        employer.setValue(empty);
-    }
-    if (location.getValue() == "") {
-        location.setValue(empty);
-    }
-    if (positionType.getValue() == "") {
-        positionType.setValue(empty);
-    }
-    if (coreCompetency.getValue() == "") {
-        coreCompetency.setValue(empty);
-    }
+    if (employer.getValue().equals("") || employer.getValue() == null){
+        employer.setValue("Data not available");
 
+    }
+    if (location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not available");
+    }
+    if (positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not available");
+    }
+    if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+    }
     return "\n" + "ID: " + id + "\n" +
-            "Name:" + name + "\n" +
-            "Employer:" + employer + "\n" +
-            "Location" + location + "\n" +
-            "Position Type:" + positionType + "\n" +
-            "Core Competency:" + coreCompetency + "\n";
+            "Name: " + name + "\n" +
+            "Employer: " + employer + "\n" +
+            "Location: " + location + "\n" +
+            "Position Type: " + positionType + "\n" +
+            "Core Competency: " + coreCompetency + "\n";
     }
 
 }
