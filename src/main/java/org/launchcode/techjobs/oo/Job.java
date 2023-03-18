@@ -16,10 +16,108 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
+    public Job(){
+        id = nextId;
+        nextId++;
+    }
+
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency corecompetency) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = corecompetency;
+    }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {        if (this == o) return true;
+        if (!(o instanceof Job)) return false;
+        Job job = (Job) o;
+        return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && coreCompetency.equals(job.coreCompetency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+   public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+
+    @Override
+    public String toString() { // start with a new line
+    String blank = "Data Not Available";
+    if (name.equals("")) {
+        name = blank;
+    }
+    if (employer.getValue().equals("") || employer.getValue() == null){
+        employer.setValue("Data not available");
+
+    }
+    if (location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not available");
+    }
+    if (positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not available");
+    }
+    if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+    }
+    return "\n" + "ID: " + id + "\n" +
+            "Name: " + name + "\n" +
+            "Employer: " + employer + "\n" +
+            "Location: " + location + "\n" +
+            "Position Type: " + positionType + "\n" +
+            "Core Competency: " + coreCompetency + "\n";
+    }
+
 }
